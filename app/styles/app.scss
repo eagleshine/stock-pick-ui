@@ -1,0 +1,24 @@
+@import 'ember-paper';
+@import 'colors';
+
+body.ember-application, body>div.ember-view {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    background-color: #f9f9f9;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+a {
+  color: initial;
+  text-decoration: none;
+}
+
+.gray {
+  background-color: $grey-4
+}
+
+

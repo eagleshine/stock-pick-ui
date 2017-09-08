@@ -1,5 +1,15 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<h1>Stock Pick</h1>
 
-{{outlet}}
+<div class="layout-row">
+    <div class="flex-20">
+      <ul>
+        {{#each model as |model|}}
+          <li>{{model.name}}</li>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="flex">
+      {{outlet}}
+    </div>
+</div>
+
