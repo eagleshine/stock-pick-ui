@@ -8,5 +8,11 @@ export default Ember.Route.extend({
   },
   model(params) {
     return this.get('store').query('ticker', params);
+  },
+
+  actions: {
+    goToTicker(ticker) {
+      this.transitionTo('stock', ticker.id);
+    }
   }
 });

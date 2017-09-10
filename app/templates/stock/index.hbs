@@ -1,0 +1,33 @@
+{{#paper-card as |card|}}
+  {{#card.title as |title|}}
+    {{#title.text as |text|}}
+      {{#text.headline}}
+        <div class="layout-row">
+          <div>
+          <span class="">
+            {{capitalize ticker}}
+          </span>
+          </div>
+          <div class="flex"></div>
+          <div>
+            {{#paper-button iconButton=false
+              onClick=(route-action "transitionToHistorical")
+            }}
+              <span>historical</span>
+            {{/paper-button}}
+          </div>
+        </div>
+      {{/text.headline}}
+      {{#text.subhead}}{{titleize ticker}}{{/text.subhead}}
+    {{/title.text}}
+  {{/card.title}}
+  {{#card.content}}
+    <p>
+      {{businessSummary}}
+    </p>
+    <pre class="stock__info">
+{{result}}
+    </pre>
+  {{/card.content}}
+{{/paper-card}}
+

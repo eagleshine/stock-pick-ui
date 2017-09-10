@@ -7,7 +7,7 @@
         {{#title.text as |text|}}
           {{#text.headline}}
             {{ticker.symbol}}
-		  {{/text.headline}}
+          {{/text.headline}}
         {{/title.text}}
       {{/card.title}}
       {{#card.content}}
@@ -29,16 +29,27 @@
   {{#paper-grid-list
     cols="1 md-2 gt-md-6"
     rowHeight="gt-md-1:1 2:2"
-    gutter="8px gt-sm-8px" as |grid|
+    gutter="12px gt-sm-8px" as |grid|
   }}
     {{#each model as |ticker|}}
       {{#grid.tile class="gray" rowspan="1" colspan="sm-1 gt-sm-2" as |tile|}}
-		<div>
-          {{ticker.name}}
- 		</div>
+
+          {{#paper-item class="md-3-line" onClick=(route-action "goToTicker" ticker)}}
+            <img src={{item.img}} alt={{ticker.symbol}} class="md-avatar">
+            <div class="md-list-item-text">
+              <h3>{{ticker.name}}</h3>
+              <p>{{ticker.industry}}</p>
+              <h4>{{ticker.link}}</h4>
+              <h4>{{ticker.source}}, {{ticker.ipoYear}}</h4>
+              <h4>{{ticker.marketCap}}</h4>
+            </div>
+          {{/paper-item}}
+
+        <!--
         {{#tile.footer}}
           {{ticker.symbol}}
-		{{/tile.footer}}
+        {{/tile.footer}}
+        -->
       {{/grid.tile}}
     {{/each}}
   {{/paper-grid-list}}
