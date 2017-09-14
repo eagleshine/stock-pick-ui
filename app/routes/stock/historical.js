@@ -44,8 +44,6 @@ export default Ember.Route.extend({
     const _this = this;
     transition.then(function() {
       model.currentUrl = _this.get('router.url');
-      console.log(_this.get('router.url'));
-      console.log(model.currentUrl);
     });
   }
 });

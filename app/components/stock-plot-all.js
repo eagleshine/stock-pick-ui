@@ -20,7 +20,6 @@ export default Ember.Component.extend({
   percentAnnotationFormat: '+.1%',
   volumeAnnotationFormat: ',.3s',
   xScaleLength: null,
-  currentUrl: null,
   identificator: null,
   svg: null,
   type: 'candlestick',
@@ -96,12 +95,6 @@ export default Ember.Component.extend({
   },
   init() {
     this._super(...arguments);
-    console.log(this.get('currentUrl'));
-
-    //if (!this.get('currentUrl')) {
-    //  throw new Error('Required argument missed: currentUrl');
-    //}
-
     this.set('identificator', 'plot-' + Math.floor(Math.random() * (9000000 - 1000000) + 1000000));
   },
   refreshChartHeight() {
@@ -151,7 +144,7 @@ export default Ember.Component.extend({
     return Ember.$.inArray(indicatorName, this.get('enabledIndicators')) !== -1;
   },
   getClipUrl(clipId) {
-    return "url(" + this.get('currentUrl') + "#" + clipId + ")";
+    return "url(" + "#" + clipId + ")";
   },
   redraw() {
     this.get('svg').selectAll('*').remove();
