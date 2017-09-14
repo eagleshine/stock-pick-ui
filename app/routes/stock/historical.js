@@ -45,5 +45,13 @@ export default Ember.Route.extend({
     transition.then(function() {
       model.currentUrl = _this.get('router.url');
     });
+  },
+
+  actions: {
+    didTransition: function() {
+      let navTitle = this.paramsFor('stock')
+        .stock_id.toUpperCase();
+      this.send('setNavTitle', navTitle);
+    }
   }
 });

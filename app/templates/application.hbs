@@ -1,15 +1,53 @@
-<h1>Stock Pick</h1>
-
-<div class="layout-row">
-    <div class="flex-20">
-      <ul>
-        {{#each model as |model|}}
-          <li>{{model.name}}</li>
+{{#paper-sidenav-container class="inner-sidenav"}}
+  {{#paper-sidenav
+    class="md-whiteframe-z2"
+    name="left"
+    open=showSideNav
+    closeOnClick=true
+    onToggle=(action (mut showSideNav))
+  }}
+    {{#paper-toolbar as |toolbar|}}
+    {{#paper-toolbar-tools
+       classNames="side-nav__header"
+    }}
+      {{#link-to "stocks.index" (query-params sector='null')}}
+        Stock Pick
+      {{/link-to}}
+    {{/paper-toolbar-tools}}
+    {{/paper-toolbar}}
+    {{#paper-content padding=true}}
+      <h3>Sectors</h3>
+      {{#paper-list}}
+        {{#each model as |sector|}}
+          {{#link-to "stocks.index" (query-params sector=sector.name)}}
+            {{#paper-item
+              classNames="side-nav__sector"
+            }}
+              <div>{{paper-icon "folder open" size=36}}</div>
+              <div class="side-nav__sector-text">
+                {{sector.name}}
+              </div>
+            {{/paper-item}}
+          {{/link-to}}
         {{/each}}
-      </ul>
-    </div>
-    <div class="flex">
+      {{/paper-list}}
+    {{/paper-content}}
+  {{/paper-sidenav}}
+  <div tabindex="-1" role="main" class="flex layout-column">
+    {{top-nav
+      navTitle=navTitle
+      onSearch=(route-action "search")
+      onToggleSideNav=(route-action "toggleSideNav")
+    }}
+
+    <main class="md-padding app__main">
+      {{#if model.notification}}
+        <div class="warning">
+          {{model.notification}}
+        </div>
+      {{/if}}
       {{outlet}}
-    </div>
-</div>
+    </main>
+  </div>
+{{/paper-sidenav-container}}
 

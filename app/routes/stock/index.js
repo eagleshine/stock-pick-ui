@@ -17,6 +17,11 @@ export default Ember.Route.extend({
   },
 
   actions: {
+    didTransition: function() {
+      let navTitle = this.paramsFor('stock')
+        .stock_id.toUpperCase();
+      this.send('setNavTitle', navTitle);
+    },
     transitionToHistorical() {
       this.transitionTo('stock.historical');
     }

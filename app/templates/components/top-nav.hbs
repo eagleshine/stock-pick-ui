@@ -1,0 +1,40 @@
+{{#paper-toolbar
+  classNames="top-nav"
+  as |toolbar|
+}}
+  {{#toolbar.tools}}
+      {{#paper-button
+        iconButton=true
+        onClick=(action onToggleSideNav)
+        classNames="top-nav__toggle-menu"
+      }}
+        {{paper-icon "menu"}}
+      {{/paper-button}}
+    <span>{{navTitle}}</span>
+    <span class="flex"></span>
+    <div class="top-nav__search">
+      {{#paper-button
+        iconButton=true
+        onClick=(action (toggle "showSearch" this))
+      }}
+        {{paper-icon "search"}}
+      {{/paper-button}}
+      {{#if showSearch}}
+        <md-input-container>
+          {{focus-input
+            type="text"
+            placeholder="Search"
+            classNames="md-input top-nav__search-input"
+            enter=(action "search")
+          }}
+        </md-input-container>
+        {{#paper-button
+          iconButton=true
+          onClick=(action (toggle "showSearch" this))
+        }}
+          {{paper-icon "clear"}}
+        {{/paper-button}}
+      {{/if}}
+    </div>
+  {{/toolbar.tools}}
+{{/paper-toolbar}}

@@ -1,0 +1,38 @@
+<!--
+{{#paper-grid-list
+  cols="1 md-2 gt-md-6"
+  rowHeight="gt-md-1:1 2:2"
+  gutter="12px gt-sm-8px" as |grid|
+}}
+  {{#each model as |ticker|}}
+    {{#grid.tile class="gray" rowspan="1" colspan="sm-1 gt-sm-2" as |tile|}}
+        {{#paper-item class="md-3-line" onClick=(route-action "goToTicker" ticker)}}
+          <img src={{item.img}} alt={{ticker.symbol}} class="md-avatar">
+          <div class="md-list-item-text">
+            <h3>{{ticker.name}}</h3>
+            <p>{{ticker.industry}}</p>
+            <h4>{{ticker.link}}</h4>
+            <h4>{{ticker.source}}, {{ticker.ipoYear}}</h4>
+            <h4>{{ticker.marketCap}}</h4>
+          </div>
+        {{/paper-item}}
+    {{/grid.tile}}
+  {{/each}}
+{{/paper-grid-list}}
+-->
+
+{{#paper-list}}
+  {{#each model as |ticker|}}
+    {{#paper-item class="md-3-line md-long-text" onClick=(route-action "goToTicker" ticker)}}
+      <img src={{item.img}} alt={{ticker.symbol}} class="md-avatar">
+      <div class="md-list-item-text">
+        <h3>{{ticker.name}}</h3>
+        <p>{{ticker.industry}}</p>
+        <h4>{{ticker.link}}</h4>
+        <h4>{{ticker.source}}, {{ticker.ipoYear}}</h4>
+        <h4>{{ticker.marketCap}}</h4>
+      </div>
+    {{/paper-item}}
+    {{paper-divider}}
+  {{/each}}
+{{/paper-list}}

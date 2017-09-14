@@ -24,3 +24,88 @@ a {
 .stock__info {
 }
 
+.top-nav {
+  background: linear-gradient(
+  135deg,
+  $indigo-900 0%,
+  $indigo-800 11%,
+  $indigo-700 36%,
+  $blue-700 64%,
+  $light-blue-700 83%,
+  $light-blue-600 95%,
+  $cyan-600 99%
+  );
+}
+
+.top-nav__search-input {
+  color: white !important; //TODO fix me
+}
+
+.top-nav__info {
+    .image{
+        width: 40px;
+        height: 40px;
+        margin-right: -5px;
+        border-radius: 130px;
+        border: 1px solid #f1f0ef;
+        -webkit-border-radius: 130px;
+        -moz-border-radius: 130px;
+    }
+}
+
+@media screen and (min-width: 960px) {
+  .top-nav__toggle-menu {
+    display: none;
+  }
+}
+
+.app__main {
+  overflow-y: auto;
+}
+
+.warning {
+  background-color: $red-800;
+  text-align: center;
+  vertical-align: middle;
+  color: $white-900;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: -20px;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.inner-sidenav {
+  height: 100%;
+}
+
+.side-nav__header {
+//  background-color: white;
+//  color: black;
+}
+
+.side-nav__sector {
+  text-transform: capitalize;
+}
+
+.side-nav__sector-text {
+  padding-left: 10px;
+}
+
+.search-title {
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 32px;
+    margin-bottom: 16px;
+}
+
+.search-title-term {
+  color: $light-blue-600;
+}
+
+@media screen and (min-width: 600px) {
+  md-sidenav {
+    max-width: 250px;
+  }
+}
+
