@@ -1,0 +1,22 @@
+{{#paper-list}}
+  {{#each model as |ticker|}}
+    {{#paper-item class="md-3-line md-long-text" onClick=(action "goToTicker" ticker)}}
+      <img src={{item.img}} alt={{ticker.symbol}} class="md-avatar">
+      <div class="md-list-item-text">
+        <h3>{{ticker.name}}</h3>
+        <p>{{ticker.industry}}</p>
+        <h4>{{ticker.link}}</h4>
+        <h4>{{ticker.source}}, {{ticker.ipoYear}}</h4>
+        <h4>{{ticker.marketCap}}</h4>
+      </div>
+    {{/paper-item}}
+    {{paper-divider}}
+  {{/each}}
+{{/paper-list}}
+
+{{infinity-loader
+infinityModel=model
+destroyOnInfinity=true
+scrollable="#content"
+}}
+
