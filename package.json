@@ -35,6 +35,7 @@
     "ember-composable-helpers": "^2.0.3",
     "ember-data": "~2.14.9",
     "ember-export-application-global": "^2.0.0",
+    "ember-infinity": "^0.2.8",
     "ember-load-initializers": "^1.0.0",
     "ember-paper": "^1.0.0-beta.3",
     "ember-resolver": "^4.0.0",
