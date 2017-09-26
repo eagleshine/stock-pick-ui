@@ -17,5 +17,9 @@ export default Ember.Route.extend({
     toggleSideNav() {
       this.controllerFor(this.routeName).toggleProperty('showSideNav');
     }
+  },
+
+  afterModel() {
+    this.transitionTo('stocks');
   }
 });

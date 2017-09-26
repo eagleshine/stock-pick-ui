@@ -37,7 +37,7 @@ export default Ember.Route.extend({
     controller.set('width', width);
     controller.set('hist', JSON.stringify(historical, null, 4));
 
-    console.log(data);
+    Ember.Logger.info(data);
   },
 
   afterModel(model, transition) {
